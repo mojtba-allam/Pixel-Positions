@@ -11,9 +11,9 @@
         <section class="pt-10">
             <x-section-heading>Featured Jobs</x-section-heading>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
-                <x-job-card />
-                <x-job-card />
-                <x-job-card />
+                @foreach ($featuredJobs as $job)
+                    <x-job-card :$job />
+                @endforeach
 
             </div>
         </section>
@@ -21,16 +21,9 @@
             <section>
                 <x-section-heading>Tags</x-section-heading>
                 <div class="mt-6 space-x-2">
-                    <x-tag>Laravel</x-tag>
-                    <x-tag>Vue</x-tag>
-                    <x-tag>React</x-tag>
-                    <x-tag>Node</x-tag>
-                    <x-tag>Python</x-tag>
-                    <x-tag>Ruby</x-tag>
-                    <x-tag>Typescript</x-tag>
-                    <x-tag>Docker</x-tag>
-                    <x-tag>AWS</x-tag>
-                    <x-tag>Git</x-tag>
+                    @foreach ($tags as $tag)
+                        <x-tag size="small" :$tag />
+                    @endforeach
                 </div>
             </section>
 
@@ -38,9 +31,10 @@
 
                 <x-section-heading>Recent Jobs</x-section-heading>
                 <div class="mt-6 space-y-6">
-                    <x-job-card-wide />
-                    <x-job-card-wide />
-                    <x-job-card-wide />
+                    @foreach ($jobs as $job)
+                        <x-job-card-wide :$job />
+                    @endforeach
+
                 </div>
 
             </section>
